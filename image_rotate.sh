@@ -34,25 +34,18 @@ echo "Populating Result Image"
 cp $scanner1_output_image $result_image
 
 echo "starting screens"
-eog -n $scanner1_image &
-xdotool search --name "Image Viewer" set_window --name $scanner1_image
-wmctrl -r $scanner1_image -e 1,0,0,-1,-1
-
-
-eog -n $result_image &
-xdotool search --name "Image Viewer" set_window --name $result_image
-wmctrl -r $result_image -e 1,1366,0,-1,-1
-
+eog -n --fullscreen $result_image &
+sleep 3
 
 while true
 do    
     echo "Scanning Document Image"
 
     scan_image "hp" $document_scanner_image "--resolution 300dpi"
-    send_to_screen $document_scanner_image $scanner1_image
-    sleep_random 5 10
+    send_to_screen $document_scanner_image $result_image
+    sleep_random 5 15
 
     scan_image "pixma" $scanner1_output_image
     send_to_screen $scanner1_output_image $result_image
-    sleep_random 10 15
+    sleep_random 10 30
 done
