@@ -1,0 +1,10 @@
+[Unit]
+Description=Scanner Script - Loops and scans image to temp directory
+
+[Service]
+Type=simple
+ExecStart=/scripts/scan.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

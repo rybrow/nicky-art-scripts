@@ -1,0 +1,11 @@
+== End User Script (2024)
+
+=== Installation Instructions
+
+Clone this repo and Run the following
+
+[source,console]
+----
+cd end_user_2024
+sudo ./setup.sh
+----
